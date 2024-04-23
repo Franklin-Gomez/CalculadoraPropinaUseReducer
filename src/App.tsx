@@ -1,12 +1,35 @@
+import Factura from "./Components/Factura"
+import Header from "./Components/Header"
+import Menu from "./Components/Menu"
+import { menuItems }  from "./db/db"
+
 function App() {
 
   return (
     <>
-      <header className=" bg-teal-400 py-5">
-        <h1 className=" text-center text-4xl font-black" > Calculadora de Propinas y Consumos </h1>
-      </header>
-      
+      <Header /> 
+
+      <div className=" grid grid-cols-2 gap-2 p-10 ">
+
+        <div>
+
+          <Menu
+            menuItems={menuItems}
+          />
+        
+        </div>
+
+        <div>
+
+          <Factura/> 
+
+        </div>
+
+
+      </div>
+
     </>
+
   )
 }
 
