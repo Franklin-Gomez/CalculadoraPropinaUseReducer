@@ -18,10 +18,11 @@ const tipOptions = [
 
 type PropinaPros = { 
   setTip :  React.Dispatch<React.SetStateAction<number>>
+  tip : number
 }
 
 
-export default function Propinaform( { setTip }  : PropinaPros) {
+export default function Propinaform( { setTip , tip }  : PropinaPros) {
   return (
     <div className="border-b border-teal-400">
       <h2 className=" font-bold mb-2"> Propina : </h2>
@@ -30,7 +31,7 @@ export default function Propinaform( { setTip }  : PropinaPros) {
 
         <div key={option.id} className=" flex items-center mb-1  gap-2">
 
-          <input type="radio" name="propina" value={option.value} id={option.id} onChange={ (e) => setTip( +e.target.value)}/>
+          <input type="radio" name="propina" value={option.value} id={option.id} onChange={ (e) => setTip( +e.target.value)} checked={ tip == option.value } />
           <label className=" font-semibold" htmlFor={option.id}> { option.label }</label>
 
         </div>

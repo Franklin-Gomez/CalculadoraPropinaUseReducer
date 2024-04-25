@@ -8,7 +8,7 @@ import Totales from "./Components/Totales"
 
 function App() {
 
-  const { order , tip , setTip,   addtoCart , setOrder , removeItem} = useOrder()
+  const { order , tip , setTip,   addtoCart , setOrder , removeItem , saveOrder} = useOrder()
 
   return (
     <>
@@ -34,6 +34,7 @@ function App() {
 
           <Propinaform 
             setTip={setTip}
+            tip={tip}
           />
 
           <Totales 
@@ -42,6 +43,9 @@ function App() {
           
           />
           
+          <button onClick={() => saveOrder()} className="w-full bg-black text-white uppercase mt-5 p-5 font-bold">
+            Guardar Elecciones
+          </button>
         </div>
 
       </div>

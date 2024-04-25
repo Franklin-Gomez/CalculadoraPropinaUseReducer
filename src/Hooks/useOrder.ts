@@ -34,6 +34,11 @@ export default function useOrder() {
 
     }
 
+    function saveOrder () { 
+        setOrder([])
+        setTip(0)
+    }
+
   
     return {
         order,
@@ -41,7 +46,8 @@ export default function useOrder() {
         setTip,
         setOrder,
         addtoCart,
-        removeItem
+        removeItem,
+        saveOrder
     }
   
 }
