@@ -3,11 +3,11 @@ import { useState } from "react";
 export default function useOrder() {
 
     const [ order , setOrder ] = useState<OrderItem[]>([])
+    const [ tip , setTip ] = useState(0) ;
   
     function addtoCart ( items : Items ) { 
-        //console.log( 'desde agregar carrito ' , items);
 
-        const findItem = order.findIndex( ( item ) =>  item.id == items.id )
+        const findItem = order.findIndex( ( item ) =>  item.id === items.id )
 
         if( findItem >=  0 ){
             // sirve pero modificas el state directamente
@@ -27,14 +27,13 @@ export default function useOrder() {
         
     }
 
-    
   
     return {
         order,
+        tip,
+        setTip,
         setOrder,
-        addtoCart,
-       
-
+        addtoCart
     }
   
 }

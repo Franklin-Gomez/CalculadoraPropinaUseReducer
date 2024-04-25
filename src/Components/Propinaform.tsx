@@ -16,21 +16,26 @@ const tipOptions = [
     },
 ]
 
-export default function Propinaform( ) {
+type PropinaPros = { 
+  setTip :  React.Dispatch<React.SetStateAction<number>>
+}
+
+
+export default function Propinaform( { setTip }  : PropinaPros) {
   return (
-    <div>
-        <h2 className=" font-bold mb-2"> Propina : </h2>
+    <div className="border-b border-teal-400">
+      <h2 className=" font-bold mb-2"> Propina : </h2>
 
-        { tipOptions.map( ( option ) => ( 
+      { tipOptions.map( ( option ) => ( 
 
-            <div key={option.id} className=" flex items-center mb-1  gap-2">
+        <div key={option.id} className=" flex items-center mb-1  gap-2">
 
-                <input type="radio" name="propina" value={option.value} id={option.id}  />
-                <label className=" font-semibold" htmlFor={option.id}> { option.label }</label>
+          <input type="radio" name="propina" value={option.value} id={option.id} onChange={ (e) => setTip( +e.target.value)}/>
+          <label className=" font-semibold" htmlFor={option.id}> { option.label }</label>
 
-            </div>
-
-        ))}
+        </div>
+        
+      ))}
     </div>
   )
 }

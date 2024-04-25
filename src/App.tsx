@@ -2,16 +2,15 @@ import Factura from "./Components/Factura"
 import Header from "./Components/Header"
 import Menu from "./Components/Menu"
 import { menuItems }  from "./db/db"
-import { useState } from "react"
 import useOrder from "./Hooks/useOrder"
 import Propinaform from "./Components/Propinaform"
+import Totales from "./Components/Totales"
 
 function App() {
 
-  const [ tip , setTip ] = useState(0) ;
-  const [ total , setTotal] = useState(0) ; 
 
-  const { order , addtoCart , setOrder } = useOrder()
+
+  const { order , tip , setTip,   addtoCart , setOrder } = useOrder()
 
   return (
     <>
@@ -35,10 +34,15 @@ function App() {
           /> 
 
           <Propinaform 
-          
+            setTip={setTip}
           />
 
-
+          <Totales 
+            tip={tip}
+            order={order}
+          
+          />
+          
         </div>
 
 
