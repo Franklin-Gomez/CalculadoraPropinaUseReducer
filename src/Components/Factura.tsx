@@ -12,14 +12,22 @@ export default function Factura( { order } : FacturaPros) {
 
         <div key={items.id} >
 
-          <div className=" mb-5 border-b border-teal-400">
+          <div className=" mb-5 border-b border-teal-400 flex justify-between items-center">
             
-            <h3 className=" font-bold"> { items.name } </h3>
+            <div>
 
-            <div className=" flex space-x-4 "> 
-              <p>Precio : <span className=" font-bold"> $ { items.price }</span> </p>
-              <p>Cantidad : <span className=" font-bold"> { items.quantity }</span></p>
+              <h3 className=" font-bold"> { items.name } </h3>
+
+              <div className=" flex space-x-4 "> 
+                <p>Precio : <span className=" font-bold"> $ { items.price }</span> </p>
+                <p>Cantidad : <span className=" font-bold"> { items.quantity }</span></p>
+              </div>
+
             </div>
+
+            <button className=" font-bold cursor-pointer h-8 w-8 rounded-full bg-red-500 text-white">
+              X
+            </button>
 
           </div>
 

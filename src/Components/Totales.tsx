@@ -13,8 +13,6 @@ export default function Totales( { tip , order }  :  TotalesProps) {
 
   const total = useMemo (() => subtotal + (subtotal *  tip) ,[ tip , order ])
 
-
-
   return (
     <div className=" pt-4">
         <h1 className=" font-bold"> Total Monto Consumido :  </h1>
