@@ -8,9 +8,7 @@ import Totales from "./Components/Totales"
 
 function App() {
 
-
-
-  const { order , tip , setTip,   addtoCart , setOrder } = useOrder()
+  const { order , tip , setTip,   addtoCart , setOrder , removeItem} = useOrder()
 
   return (
     <>
@@ -31,6 +29,7 @@ function App() {
 
           <Factura
             order={order}
+            removeItem={removeItem}
           /> 
 
           <Propinaform 
@@ -44,7 +43,6 @@ function App() {
           />
           
         </div>
-
 
       </div>
 

@@ -1,9 +1,10 @@
 
 type  FacturaPros = {
   order : OrderItem[]
+  removeItem : (items: Items) =>  void
 }
 
-export default function Factura( { order } : FacturaPros) {
+export default function Factura( { order , removeItem} : FacturaPros) {
   return (
     <div>
       <h1 className="text-center uppercase font-bold text-2xl mb-5"> factura </h1>
@@ -25,7 +26,7 @@ export default function Factura( { order } : FacturaPros) {
 
             </div>
 
-            <button className=" font-bold cursor-pointer h-8 w-8 rounded-full bg-red-500 text-white">
+            <button onClick={() => removeItem( items ) } className=" font-bold cursor-pointer h-8 w-8 rounded-full bg-red-500 text-white">
               X
             </button>
 

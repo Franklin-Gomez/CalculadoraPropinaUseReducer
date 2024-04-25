@@ -27,13 +27,21 @@ export default function useOrder() {
         
     }
 
+    function removeItem( items : Items ) { 
+        const updateOrder =  order.filter( ( item ) => item.id !== items.id )
+
+        setOrder( updateOrder  );
+
+    }
+
   
     return {
         order,
         tip,
         setTip,
         setOrder,
-        addtoCart
+        addtoCart,
+        removeItem
     }
   
 }
