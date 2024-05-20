@@ -8,7 +8,7 @@ import Totales from "./Components/Totales"
 
 function App() {
 
-  const { order , tip , setTip,   addtoCart , setOrder , removeItem , saveOrder} = useOrder()
+  const { order , tip , setTip,   addtoCart  , removeItem , saveOrder} = useOrder()
 
   return (
     <>
@@ -40,7 +40,6 @@ function App() {
           <Totales 
             tip={tip}
             order={order}
-          
           />
           
           <button onClick={() => saveOrder()} className="w-full bg-black text-white uppercase mt-5 p-5 font-bold">
