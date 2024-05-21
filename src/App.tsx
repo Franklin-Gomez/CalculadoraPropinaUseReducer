@@ -10,7 +10,7 @@ import { useReducer } from "react"
 
 function App() {
 
-  const { order , tip , setTip,   addtoCart  , removeItem , saveOrder} = useOrder()
+  const { order , tip , setTip  , removeItem , saveOrder} = useOrder()
 
   const [ state , dispatch ] = useReducer( orderReducer , initialState )
 
@@ -23,7 +23,7 @@ function App() {
         <div className="p-10">
 
           <Menu
-            addtoCart={addtoCart}
+            dispatch={dispatch}
             menuItems={menuItems}
           />
 
