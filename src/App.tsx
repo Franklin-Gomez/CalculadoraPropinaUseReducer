@@ -37,12 +37,12 @@ function App() {
           /> 
 
           <Propinaform 
-            setTip={setTip}
-            tip={tip}
+            dispatch={dispatch}
+            tip={state.tip}
           />
 
           <Totales 
-            tip={tip}
+            tip={state.tip}
             order={state.order}
           />
           
