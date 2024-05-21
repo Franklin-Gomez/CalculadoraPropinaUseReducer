@@ -10,7 +10,7 @@ import { useReducer } from "react"
 
 function App() {
 
-  const { order , tip , setTip  , removeItem , saveOrder} = useOrder()
+  const { tip , setTip  , saveOrder} = useOrder()
 
   const [ state , dispatch ] = useReducer( orderReducer , initialState )
 
@@ -33,7 +33,7 @@ function App() {
 
           <Factura
             order={state.order}
-            removeItem={removeItem}
+            dispatch={dispatch}
           /> 
 
           <Propinaform 

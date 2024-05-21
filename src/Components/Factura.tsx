@@ -1,10 +1,11 @@
+import { OrderActions } from "../Reducers/order-reducer"
 
 type  FacturaPros = {
   order : OrderItem[]
-  removeItem : (items: Items) =>  void
+  dispatch : React.Dispatch<OrderActions>
 }
 
-export default function Factura( { order , removeItem} : FacturaPros) {
+export default function Factura( { order , dispatch } : FacturaPros) {
   return (
     <div>
       <h1 className="text-center uppercase font-bold text-2xl mb-5"> factura </h1>
@@ -26,7 +27,7 @@ export default function Factura( { order , removeItem} : FacturaPros) {
 
             </div>
 
-            <button onClick={() => removeItem( items ) } className=" font-bold cursor-pointer h-8 w-8 rounded-full bg-red-500 text-white">
+            <button onClick={() => dispatch( { type : 'removeItem' , payload : { items : items.id } } ) } className=" font-bold cursor-pointer h-8 w-8 rounded-full bg-red-500 text-white">
               X
             </button>
 
