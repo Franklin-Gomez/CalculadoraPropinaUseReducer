@@ -5,10 +5,14 @@ import { menuItems }  from "./db/db"
 import useOrder from "./Hooks/useOrder"
 import Propinaform from "./Components/Propinaform"
 import Totales from "./Components/Totales"
+import { initialState , orderReducer } from "./Reducers/order-reducer"
+import { useReducer } from "react"
 
 function App() {
 
   const { order , tip , setTip,   addtoCart  , removeItem , saveOrder} = useOrder()
+
+  const [ state , dispatch ] = useReducer( orderReducer , initialState )
 
   return (
     <>
