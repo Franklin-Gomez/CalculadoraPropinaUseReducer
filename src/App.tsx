@@ -2,15 +2,12 @@ import Factura from "./Components/Factura"
 import Header from "./Components/Header"
 import Menu from "./Components/Menu"
 import { menuItems }  from "./db/db"
-import useOrder from "./Hooks/useOrder"
 import Propinaform from "./Components/Propinaform"
 import Totales from "./Components/Totales"
 import { initialState , orderReducer } from "./Reducers/order-reducer"
 import { useReducer } from "react"
 
 function App() {
-
-  const { tip , setTip  , saveOrder} = useOrder()
 
   const [ state , dispatch ] = useReducer( orderReducer , initialState )
 
@@ -46,7 +43,7 @@ function App() {
             order={state.order}
           />
           
-          <button onClick={() => saveOrder()} className="w-full bg-black text-white uppercase mt-5 p-5 font-bold">
+          <button onClick={() => dispatch({ type : "saveOrder"})} className="w-full bg-black text-white uppercase mt-5 p-5 font-bold">
             Guardar Elecciones
           </button>
         </div>

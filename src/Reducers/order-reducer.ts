@@ -68,7 +68,9 @@ export const orderReducer = (
     if( action.type == 'saveOrder'){
 
         return {
-            ...state
+            ...state,
+            order : [] ,
+            tip : 0
         }
 
     }
