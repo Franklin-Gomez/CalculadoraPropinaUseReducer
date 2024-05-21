@@ -32,7 +32,7 @@ function App() {
         <div className="border border-dashed p-10">
 
           <Factura
-            order={order}
+            order={state.order}
             removeItem={removeItem}
           /> 
 
@@ -43,7 +43,7 @@ function App() {
 
           <Totales 
             tip={tip}
-            order={order}
+            order={state.order}
           />
           
           <button onClick={() => saveOrder()} className="w-full bg-black text-white uppercase mt-5 p-5 font-bold">
