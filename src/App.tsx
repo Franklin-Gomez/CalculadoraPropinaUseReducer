@@ -2,13 +2,14 @@ import Factura from "./Components/Factura"
 import Header from "./Components/Header"
 import Menu from "./Components/Menu"
 import { menuItems }  from "./db/db"
-import useOrder from "./Hooks/useOrder"
 import Propinaform from "./Components/Propinaform"
 import Totales from "./Components/Totales"
+import { initialState , orderReducer } from "./Reducers/order-reducer"
+import { useReducer } from "react"
 
 function App() {
 
-  const { order , tip , setTip,   addtoCart , setOrder , removeItem , saveOrder} = useOrder()
+  const [ state , dispatch ] = useReducer( orderReducer , initialState )
 
   return (
     <>
@@ -19,7 +20,7 @@ function App() {
         <div className="p-10">
 
           <Menu
-            addtoCart={addtoCart}
+            dispatch={dispatch}
             menuItems={menuItems}
           />
 
@@ -28,22 +29,21 @@ function App() {
         <div className="border border-dashed p-10">
 
           <Factura
-            order={order}
-            removeItem={removeItem}
+            order={state.order}
+            dispatch={dispatch}
           /> 
 
           <Propinaform 
-            setTip={setTip}
-            tip={tip}
+            dispatch={dispatch}
+            tip={state.tip}
           />
 
           <Totales 
-            tip={tip}
-            order={order}
-          
+            tip={state.tip}
+            order={state.order}
           />
           
-          <button onClick={() => saveOrder()} className="w-full bg-black text-white uppercase mt-5 p-5 font-bold">
+          <button onClick={() => dispatch({ type : "saveOrder"})} className="w-full bg-black text-white uppercase mt-5 p-5 font-bold">
             Guardar Elecciones
           </button>
         </div>
